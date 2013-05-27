@@ -1,0 +1,29 @@
+<%= form_for(@post) do |f| %>
+  <% if @post.errors.any? %>
+  <div id="errorExplanation">
+    <h2> <%= pluralize(@post.errors.count, "error") %> 
+         prohibited this post from being saved:
+    </h2>
+    <ul>
+    <% @post.errors.full_messages.each do |msg| %>
+      <li><%= msg %></li>
+    <% end %>
+    </ul>
+  </div>
+  <% end %>
+
+<table>
+  <tr class="field">
+    <td><%= f.label :category %></td>
+    <td><%= f.select(:category, [['--Select A Category--'], ['Anecdote'], 
+                                 ['High Praise'], ['Birthday Wish']]) %></td>
+  </tr>
+  <tr class="field">
+    <td><%= f.label :message %></td>
+    <td><%= f.text_area :message, :cols => "50", :rows => "12" %></td>
+  </tr>
+</table>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

@@ -1,0 +1,309 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+ * or vendor/assets/stylesheets of plugins, if any, can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the top of the
+ * compiled file, but it's generally better to create a new file per style scope.
+ *
+ *= require_self
+ *= require_tree .
+ */
+
+body
+{
+  text-align: left;
+  background-image: url(/assets/kevo.jpg);
+  background-attachment: fixed;
+  font-family: "Comic Sans MS", Comic Sans, sans-serif;
+}
+
+h1, h2, h3, h4 { text-align: center; }
+
+#container
+{
+  width: 700px;
+  margin: 0px auto;
+  padding: 0px;
+  border: 2px solid black;
+  background-color: #F5DEB3;
+}
+
+#title a
+{
+  text-decoration: none;
+  color: black;
+  display: block;
+}
+
+#nav ul
+{
+  list-style: none;
+}
+
+.menu_item 
+{ 
+  /* display: inline; */
+  border: 2px solid black;
+  float: left;
+  margin: 1px;
+}
+
+.menu_item a
+{
+  color: black;
+  text-decoration: none;
+  padding: 5px;
+  display: block;
+}
+
+.menu_item a:hover
+{
+  background-color: yellow;
+}
+
+#user_nav
+{
+  text-align: right;
+  padding-right: 35px;
+}
+
+#user_nav ul
+{
+  list-style: none;
+}
+
+.user_nav_item
+{
+  display: block;
+}
+
+.user_nav_item a
+{
+  color: orange; 
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.user_nav_item a:hover
+{
+   color: white;
+}
+
+#content
+{
+  width: 90%;
+  margin: 0px auto;
+}
+
+#writing
+{
+  text-align: left;
+}
+
+#post_header
+{
+  width: 400px;
+  margin: 0px auto;
+}
+
+.prev_page { float: left; }
+.next_page { float: right; }
+
+.prev_page, .next_page
+{
+  width: 50px;
+  border: 2px solid black;
+  text-align: center;
+  margin: 1px 2px;
+}
+
+.page
+{
+  width: 27px;
+  border: 2px solid green;
+  display: inline-block;
+  margin: 1px 0px;
+}
+
+.prev_page:empty, .next_page:empty
+{
+  border: none;
+}
+
+.prev_page a, .next_page a, .page a 
+{
+  padding: 5px 0px;
+  text-decoration: none;
+}
+
+.prev_page a, .next_page a, .page a
+{
+  display: block;
+  color: black;
+}
+
+.prev_page a:hover, .next_page a:hover, .page a:hover
+{
+  color: white;
+  background-color: green;
+}
+
+.page_wrapper
+{
+  text-align: center;
+  margin: 0px auto;
+  width: 395px;
+}
+
+#post_category
+{
+  float: left;
+  text-align: left;
+  padding: 7px 15px;
+}
+
+#post_nav ul
+{
+  list-style: none;
+  display: inline;
+}
+
+.post_nav_item
+{
+  border: 2px solid black;
+  float: left;
+  margin: 1px;
+}
+
+.post_nav_item a
+{
+  color: black;
+  text-decoration: none;
+  padding: 5px;
+  display: block;
+}
+
+.post_nav_item a:hover
+{
+  background-color: green;
+  color: white;
+}
+
+#selected_category, span[class="page current"]
+{
+  background-color: green;
+}
+
+#posts
+{
+  clear: both;
+  padding-top: 10px;
+  width: 100%;
+}
+
+#posts td
+{
+  text-align: left;
+}
+
+.post_left
+{
+  width: 80%;
+}
+
+.post_right, .post_left
+{
+  font-size: .85em;
+}
+
+.sanchez
+{
+  font-family: Georgia, serif;
+}
+
+#add_link
+{
+   text-align: center;
+}
+
+#links div
+{
+  padding: 5px;
+}
+
+#links div span a
+{
+  color: black; 
+  text-decoration: none;
+  font-weight: bold;
+  padding: 5px;
+}
+
+#links div span a:hover
+{
+  background-color: pink;
+}
+
+.link_control
+{
+  color: purple;
+}
+
+.photo
+{
+  margin: 30px auto 0px;
+  border: 2px solid darkblue; 
+  width: 600px;
+  text-align: center;
+}
+
+.photo_image
+{
+  padding: 10px;
+}
+
+.photo_title
+{
+  color: darkblue;
+  width: 550px;
+  margin: 0px auto 5px;
+}
+
+.red { color: red; }
+.blue 
+{ 
+  color: blue; 
+  font-size: .8em;
+}
+.orange a 
+{ 
+  color: orange; 
+  text-decoration: none;
+  font-weight: bold;
+}
+.post_right a
+{ 
+  color: purple;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.post_message
+{
+  padding: 8px 8px 20px;
+  background-color: lightslategray;
+}
+
+.post_separator
+{
+  height: 20px;
+  border-top: 2px solid black;
+}
+
+#footer
+{
+  text-align: center;
+}

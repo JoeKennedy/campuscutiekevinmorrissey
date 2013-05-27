@@ -1,0 +1,15 @@
+<table>
+  <tr>
+    <td><%= comment.user.name %></td>
+    <td><%= comment.created_at %></td>
+    <% if can? :delete, comment %>
+    <td>
+      <%= link_to 'Delete', [comment.post, comment],
+                            :confirm => 'Are you sure?', :method => :delete %>
+    </td>
+    <% end %>
+  </tr>
+  <tr>
+    <td colspan="2"><%= comment.body %></td>
+  </tr>
+</table>

@@ -1,0 +1,13 @@
+<p>Show Link</p>
+<table>
+  <tr>
+    <td>Info</td>
+    <td><%= @link.info %></td>
+  </tr>
+  <tr>
+    <td>URL</td>
+    <td><%= link_to @link.link, @link.link %></td>
+  </tr>
+</table>
+
+<%= link_to 'Links', links_path %>

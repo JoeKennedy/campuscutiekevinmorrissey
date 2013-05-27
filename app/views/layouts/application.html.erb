@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Campus Cutie Kevin Morrissey</title>
+  <%= stylesheet_link_tag    "application", :media => "all" %>
+  <%= javascript_include_tag "application" %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+  <div id="container">
+    <div id="header">
+      <div id="title">
+        <h1><%= link_to "Campus Cutie Kevin Morrissey", "/" %></h1>
+      </div>
+      <div id="catchphrase">
+        <h3>Where dreams about Campus Cutie Kevin Morrissey come true!&#0153;</h3>
+      </div>
+      <div id="nav">
+        <ul>
+          <li class="menu_item"><%= link_to "Home", root_path %></li>
+          <li class="menu_item"><%= link_to "Posts", posts_path %></li>
+          <li class="menu_item"><%= link_to "About", about_path %></li>
+          <li class="menu_item"><%= link_to "Bio", bio_path %></li>
+          <li class="menu_item"><%= link_to "Photos", photos_path %></li>
+          <li class="menu_item"><%= link_to "Links", links_path %></li>
+          <li class="menu_item"><%= link_to "Submit", submit_path %></li>
+        </ul>
+      </div>
+      <div id="user_nav">
+        <ul>
+          <li class="user_nav_item">
+        <% if user_signed_in? %>
+            <%= link_to current_user.name, edit_user_registration_path %>
+          </li>
+          <li class="user_nav_item">
+            <%= link_to 'Sign Out', destroy_user_session_path, 
+                        :confirm => 'Are you sure you want to log out?' %>
+        <% else %>
+            <%= link_to 'Sign In', new_user_session_path %>
+          </li>
+          <li class="user_nav_item">
+            <%= link_to 'Sign Up', new_user_registration_path %>
+        <% end %>
+          </li>
+        </ul>
+      </div>
+    </div>
+    <div id="content">
+      <p class="notice"><%= notice %></p>
+      <p class="alert"><%= alert %></p>
+      <%= yield %>
+    </div>
+    <div id="footer">
+      <p>&copy; <%= Time.new.year %> Haunted Fortress Productions</p>
+    </div>
+  </div>
+</body>
+</html>

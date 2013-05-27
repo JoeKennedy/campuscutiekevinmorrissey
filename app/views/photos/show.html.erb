@@ -1,0 +1,13 @@
+<p>Show Photo</p>
+<table>
+  <tr>
+    <td>Title</td>
+    <td><%= @photo.title %></td>
+  </tr>
+  <tr>
+    <td>Image</td>
+    <td><%= image_tag @photo.image_url(:thumb) %></td>
+  </tr>
+</table>
+
+<%= link_to 'Photos', photos_path %>

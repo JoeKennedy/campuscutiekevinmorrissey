@@ -1,0 +1,22 @@
+<table>
+  <tr>
+    <td>Posted At</td>
+    <td><%= @post.created_at %></td>
+  </tr>
+  <tr>
+    <td>Category</td>
+    <td><%= @post.category %></td>
+  </tr>
+  <tr>
+    <td>Message</td>
+    <td><%= @post.message %></td>
+  </tr>
+</table>
+
+<h2>Comments</h2>
+<%= render @post.comments %>
+
+<% if can? :create, Comment %>
+  <h2>Add a comment:</h2>
+  <%= render "comments/form" %>
+<% end %>

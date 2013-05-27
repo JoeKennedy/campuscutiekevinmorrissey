@@ -1,0 +1,24 @@
+<h2 id="header_top">Listing Links</h2>
+
+<% if can? :create, Link %>
+  <p id="add_link"><%= link_to 'Add a link', new_link_path %></p>
+<% end %>
+
+<p>Here are some links that I found that talk about Campus Cutie Kevin
+Morrissey and Campus Cutie Kevin Morrissey's interests! Not all of them are
+written by true fans like me, but I figure the more you can know about Campus
+Cutie Kevin Morrissey, the better!
+</p>
+
+<div id="links">
+  <% @links.each do |link| %>
+    <div><span><%= link_to link.info, link.link %></span>
+    <% if can? :update, link %>
+      | <%= link_to 'Edit', edit_link_path(link) %> |
+      <%= link_to 'Delete', link , :confirm => 'Are you sure?', :method => :delete %>
+    <% end %>
+    </div>
+  <% end %>
+</div>
+
+<div class="clearfix"></div>

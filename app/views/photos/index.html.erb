@@ -1,0 +1,28 @@
+<h2 id="header_top">Listing Photos</h2>
+
+<% if can? :create, Photo %>
+  <p id="add_link"><%= link_to 'Add a photo', new_photo_path %></p>
+<% end %>
+
+<p>My older brother Sanchez used the Internet to find some photos of Campus
+Cutie Kevin Morrissey! Sanchez was even able to find some of Campus Cutie Kevin
+Morrissey with various celebrities that Sanchez knows about! He couldn't find
+any photos of Campus Cutie Kevin Morrissey with anyone from the Glee Cast
+though. :( But anyways, here are the photos! :)
+</p>
+
+<div id="photos">
+  <% @photos.each do |photo| %>
+  <div class="photo">
+    <div class="photo_image"><%= image_tag photo.image_url(:thumb) %></div>
+    <div class="photo_title"><%= photo.title %></div>
+    <% if can? :update, photo %>
+      <p><%= link_to 'Edit', edit_photo_path(photo) %> | 
+         <%= link_to 'Delete', photo, :confirm => 'Are you sure?', :method => :delete %>
+      </p>
+    <% end %>
+  </div>
+  <% end %>
+</div>
+
+<div class="clearfix"></div>
