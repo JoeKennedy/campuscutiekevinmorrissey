@@ -14,13 +14,15 @@ class PostsController < ApplicationController
     end
     
     @current_page = params[:page]
-    @posts = @posts.page(@current_page).per(1)
+    @posts = @posts.page(@current_page)
     if !@current_page
       @current_page = 1
     elsif
       @current_page = @current_page.to_i
     end
     @total_pages = @posts.num_pages
+
+    @is_index = true;
 
     respond_to do |format|
       format.html # index.html.erb
@@ -56,6 +58,7 @@ class PostsController < ApplicationController
 
   def show
     @post = Post.find(params[:id])
+    @is_index = false;
 
     respond_to do |format|
       format.html # new.html.erb

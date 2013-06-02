@@ -197,32 +197,57 @@ h1, h2, h3, h4 { text-align: center; }
   background-color: green;
 }
 
-#posts
+.post
 {
   clear: both;
   padding-top: 10px;
   width: 100%;
+  border-top: none;
 }
 
-#posts td
+.post td
 {
   text-align: left;
 }
 
-.post_left
+.post_image img
 {
-  width: 80%;
+  text-align: right;
+  float: right;
 }
 
-.post_right, .post_left
+.post_left, .post_right
+{
+  width: 30%;
+  font-size: .85em;
+}
+
+.post_middle
 {
   font-size: .85em;
+  width: 40%;
+}
+
+.post_right a
+{
+  color: deeppink;
+  text-decoration: none;
 }
 
 .sanchez
 {
   font-family: Georgia, serif;
 }
+
+.field td, .comment_body, .comment_body_thin
+{
+  vertical-align: top;
+}
+
+textarea
+{
+  font-family: "Comic Sans MS", Comic Sans, sans-serif;
+}  
 
 #add_link
 {
@@ -275,8 +300,8 @@ h1, h2, h3, h4 { text-align: center; }
 .red { color: red; }
 .blue 
 { 
+  font-size: .9em;
   color: blue; 
-  font-size: .8em;
 }
 .orange a 
 { 
@@ -284,7 +309,14 @@ h1, h2, h3, h4 { text-align: center; }
   text-decoration: none;
   font-weight: bold;
 }
-.post_right a
+.purple a
+{
+  color: purple; 
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.post_middle a
 { 
   color: purple;
   text-decoration: none;
@@ -294,16 +326,93 @@ h1, h2, h3, h4 { text-align: center; }
 .post_message
 {
   padding: 8px 8px 20px;
-  background-color: lightslategray;
+  background-color: tan;
 }
 
 .post_separator
 {
   height: 20px;
   border-top: 2px solid black;
+  margin-top: 20px;
+}
+
+#comments
+{
+  width: 95%;
+  margin: 0px 0px 0px auto;
+  font-size: .8em;
+}
+
+.comment
+{
+  background-color: tan;
+  margin: 2px;
+  width: 100%;
+}
+
+.comment_body
+{
+  width: 431px;
+}
+
+.comment_body_thin
+{
+  width: 373px;
+}
+
+.comment_info
+{
+  text-align: right;
+  width: 53px;
+}
+
+.comment tr td textarea
+{
+  resize: none;
 }
 
 #footer
 {
   text-align: center;
+}
+
+#notice {
+  color: green;
+}
+
+.field_with_errors {
+  padding: 2px;
+  display: inline;
+}
+
+.field_with_errors label 
+{
+  background-color: red;
+}
+
+#error_explanation {
+  width: 450px;
+  border: 2px solid red;
+  padding: 7px;
+  padding-bottom: 0;
+  margin-bottom: 20px;
+  background-color: #f0f0f0;
+}
+
+#error_explanation h2
+{
+  text-align: left;
+  font-weight: bold;
+  padding: 5px 5px 5px 15px;
+  font-size: 12px;
+  margin: -7px;
+  margin-bottom: 0px;
+  background-color: #c00;
+  color: #fff;
+}
+
+#error_explanation ul li
+{
+  font-size: 12px;
+  list-style: square;
 }

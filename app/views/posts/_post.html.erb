@@ -1,0 +1,37 @@
+<table class="post"> 
+  <tr>
+    <td class="poster"><div class="red"><%= post.user.name %></div></td>
+    <td class="post_image" rowspan="2" colspan="2">
+      <%= image_tag post.category + ".gif", { :height => 50 } %>
+    </td>
+  </tr>
+  <tr>
+    <td class="post_time"><div class="blue"><i>
+        <%= eastern(post.created_at) %>
+    </i></div></td>
+  </tr>
+  <tr>
+    <td class="post_message" colspan="3"><%= post.message %></td>
+  </tr>
+  <% if @is_index %>
+  <tr>
+    <td class="post_left">
+      <div>What do you think!?</div>
+      <div class="orange"><%= link_to 'View comments!', post_path(post) %></div>
+    </td>
+    <td class="post_middle">
+      <div>Have something unrelated to say!?</div>
+      <%= link_to 'Submit Your Own Post!', new_post_path %></td>
+    <td class="post_right">
+    <% if can? :update, post %>
+      <div>Change your mind!?</div>
+      <%= link_to 'Edit this post!', edit_post_path(post) %>
+    <% end %>
+    <% if can? :delete, post %>
+       | <%= link_to 'Delete', post, :confirm => 'Are you sure?', :method => :delete %>
+    <% end %>
+    </td>
+  </tr>
+  <% end %>
+</table> 
+<div class="post_separator"></div>

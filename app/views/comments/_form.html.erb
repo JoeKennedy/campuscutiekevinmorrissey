@@ -1,11 +1,15 @@
 <%= form_for ([@post, @post.comments.build]) do |f| %>
-<table>
-  <tr class="field">
-    <td><%= f.label :body %></td>
-    <td><%= f.text_area :body, :cols => "40", :rows => "8" %></td>
+<table class="comment">
+  <tr>
+    <td class="commenter"><div class="red"><%= current_user.name %></div></td>
+    <td class="comment_body" rowspan="2">
+      <div class="field"><%= f.text_area :body, :cols => "82", :rows => "2" %></div>
+    </td>
+  </tr>
+  <tr>
+    <td class="actions">
+      <%= f.submit %>
+    </td>
   </tr>
 </table>
-  <div class="actions">
-    <%= f.submit %>
-  </div>
 <% end %>

@@ -12,7 +12,7 @@ class Ability
       can :read, :all
       # users can create posts and comments
       can :create, [Post, Comment]
-      # users can edit and delete their own posts and comments
+      # users can edit their own posts and comments
       can :update, [Post, Comment], :user => user
     end
     # Define abilities for the passed in user here. For example:

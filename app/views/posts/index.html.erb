@@ -1,7 +1,7 @@
 <div class="prev_page"><%= link_to_previous_page @posts, 'Prev', :params => { :category => @category } %></div>
 <div class="next_page"><%= link_to_next_page @posts, 'Next', :params => { :category => @category } %></div>
 
-<div id="post_header"><h2 id="header_top">Posts about Kevin!</h2></div>
+<div id="post_header"><h2 id="header_top">Posts!</h2></div>
 
 <div id="post_category">Category:</div>
 <div id="post_nav">
@@ -27,39 +27,7 @@
 <p><%= link_to 'Submit Your Own', new_post_path %>
 <% end %>
 
-<table id="posts">
-<% @posts.each do |post| %>
-  <tr>
-    <td class="post_left"><div class="red"><%= post.user.name %></div></td>
-    <td class="post_right"><%= link_to 'Show comments', post_path(post) %></td>
-  </tr>
-  <tr>
-    <td class="post_left"><div class="orange">
-      <%= link_to post.category, posts_path(:category => post.category.downcase) %>
-    </div></td>
-    <td class="post_right"><%= link_to 'Submit Your Own', new_post_path %></td>
-  </tr>
-  <tr>
-    <td class="post_left"><div class="blue"><i>
-        <%= post.created_at.in_time_zone("Eastern Time (US & Canada)").strftime('%b %d, %Y %I:%M %p') %>
-    </i></div></td>
-    <td class="post_right">
-    <% if can? :update, post %>
-      <%= link_to 'Edit', edit_post_path(post) %>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-    <% end %>
-    <% if can? :delete, post %>
-      <%= link_to 'Delete', post, :confirm => 'Are you sure?', :method => :delete %>
-    <% end %>
-    </td>
-  </tr>
-  <tr>
-    <td class="post_message" colspan="2"><%= post.message %></td>
-  </tr>
-  <tr>
-    <td class="post_separator" colspan="2"></td>
-  </tr>
-<% end %>
-</table> 
+<%= render @posts %>
 
 <%= paginate @posts, :window => [11 - @current_page, 5, 
                                  @current_page - @total_pages + 10].max, 

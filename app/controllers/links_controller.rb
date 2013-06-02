@@ -49,6 +49,22 @@ class LinksController < ApplicationController
     @link = Link.find(params[:id])
   end
 
+  def update
+    @link = Link.find(params[:id])
+   
+    respond_to do |format|
+      if @link.update_attributes(params[:link])
+        format.html { redirect_to(@link, 
+                                  :notice => 'Link was successfully updated.') }
+        format.json { head :no_content }
+      else
+        format.html { render :action => "edit" }
+        format.json { render :json => @link.errors, 
+                                      :status => :unprocessable_entity }
+      end
+    end
+  end
+
   def destroy
     @link = Link.find(params[:id])
     @link.destroy

@@ -1,22 +1,13 @@
-<table>
-  <tr>
-    <td>Posted At</td>
-    <td><%= @post.created_at %></td>
-  </tr>
-  <tr>
-    <td>Category</td>
-    <td><%= @post.category %></td>
-  </tr>
-  <tr>
-    <td>Message</td>
-    <td><%= @post.message %></td>
-  </tr>
-</table>
+<h2 id="header_top">Comments about this post!</h2>
 
-<h2>Comments</h2>
-<%= render @post.comments %>
+<div class="purple"><%= link_to_function 'Back to Posts!', "history.back()" %></div>
+
+<%= render @post %>
+
+<div id="comments">
+<%= render @post.comments.order('created_at') %>
 
 <% if can? :create, Comment %>
-  <h2>Add a comment:</h2>
   <%= render "comments/form" %>
 <% end %>
+</div>

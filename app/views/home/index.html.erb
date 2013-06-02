@@ -1,13 +1,28 @@
 <h2 id="header_top">Welcome to Campus Cutie Kevin Morrissey!</h2>
 
 <div id="writing">
-<p>This Internet website page is a surprise for Campus Cutie Kevin
-Morrissey! Any jackasses who decide to tell Campus Cutie Kevin Morrissey about
-this website will have their testicles removed in their sleep (if they're
-male) or will have their ovaries removed while their awake (if they're female) 
-or will be killed (if they think gender is a social construct). That having been
-said, enjoy the Campus Cutie Kevin Morrissey fan club! :)
-</p>
+<% if (@days_til_bday > 1) %>
+  <p>One thing I want to say before I talk more about
+  CampusCutieKevinMorrissey.com is that Campus Cutie Kevin
+  Morrissey's birthday is in 
+  <span class="red"><b><%= (Date.parse("2013-06-17") - Date.today).to_i %> days</b></span>! 
+  Also, Campus Cutie Kevin Morrissey hasn't seen this web Internet site
+  page yet, so <span class="red"><b>don't tell Campus Cutie Kevin Morrissey about 
+  it</b></span>! It's a secret! My older brother Sanchez is going to tell Campus Cutie Kevin
+  Morrissey about it by posting on Campus Cutie Kevin Morrissey's The Facebook
+  profile on birthday day! So please leave this as a surprise please!
+  If you don't, I'll tell my Mom and she'll have a talk with your Mom. Now I will
+  talk about CampusCutieKevinMorrissey.com!
+  </p>
+<% elsif (@days_til_bday == 1) %>
+  <p>Campus Cutie Kevin Morrissey's birthday is 
+  <span class="red">tomorrow</span>! Happy Birthday to Campus Cutie Kevin 
+  Morrissey! <span class="red">Tomorrow</span>, write your birthday wishes as a
+  post! I know I will!
+  </p>
+<% elsif (@days_til_bday == 0) %>
+  <h3 class="red">Happy birthday Campus Cutie Kevin Morrissey! Woo hoo!</h3>
+<% end %>
 
 <p>This is the home of all things Campus Cutie Kevin Morrissey. If you're looking for
 information about Campus Cutie Kevin Morrissey, look no further! If you're looking to write

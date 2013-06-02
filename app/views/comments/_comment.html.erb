@@ -1,15 +1,18 @@
-<table>
+<table class="comment">
   <tr>
-    <td><%= comment.user.name %></td>
-    <td><%= comment.created_at %></td>
+    <td class="commenter"><div class="red"><%= comment.user.name %></div></td>
     <% if can? :delete, comment %>
-    <td>
+    <td rowspan="2" class="comment_body_thin"><%= comment.body %></td>
+    <td class="comment_info">
       <%= link_to 'Delete', [comment.post, comment],
-                            :confirm => 'Are you sure?', :method => :delete %>
+                            :confirm => 'Are you sure you want to delete your comment?', 
+                            :method => :delete %>
     </td>
+    <% else %>
+    <td rowspan="2" class="comment_body"><%= comment.body %></td>
     <% end %>
   </tr>
   <tr>
-    <td colspan="2"><%= comment.body %></td>
+    <td class="comment_time"><div class="blue"><%= eastern(comment.created_at) %></div></td>
   </tr>
 </table>
