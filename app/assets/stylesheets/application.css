@@ -371,6 +371,47 @@ textarea
   resize: none;
 }
 
+#bio
+{
+  border-top: 2px solid black;
+  font-size: 1em;
+}
+
+#bio_img
+{
+  float: right;
+  padding: 10px;
+  border: 1px solid black;
+  font-size: .75em;
+  text-align: center;
+}
+
+#bio_contents
+{
+  margin-bottom: 10px;
+  text-align: center;
+}
+
+#bio_nav
+{
+  padding: 5px;
+  border: 1px solid black;
+  width: 150px;
+  margin-bottom: 10px;
+}
+
+.section_title
+{
+  border-bottom: 1px solid black;
+}
+
+#bio div h3
+{
+  padding: 0px;
+  margin: 0px;
+  text-align: left;
+}
+
 #footer
 {
   text-align: center;
