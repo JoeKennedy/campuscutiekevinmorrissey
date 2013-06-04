@@ -17,7 +17,9 @@
   <tr>
     <td class="post_left">
       <div>What do you think!?</div>
-      <div class="orange"><%= link_to 'View comments!', post_path(post) %></div>
+      <div class="orange"><%= link_to 'Comment! (' + 
+                                      post.comments.count.to_s + ' total)',
+                                      post_path(post) %></div>
     </td>
     <td class="post_middle">
       <div>Have something unrelated to say!?</div>
