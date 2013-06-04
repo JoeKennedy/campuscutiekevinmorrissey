@@ -377,14 +377,18 @@ textarea
   font-size: 1em;
 }
 
-#bio_img
+.bio_img_left, .bio_img_right, .bio_img_left_top, .bio_img_right_top
 {
-  float: right;
-  padding: 10px;
+  padding: 5px;
   border: 1px solid black;
-  font-size: .75em;
+  font-size: .7em;
   text-align: center;
 }
+
+.bio_img_left, .bio_img_left_top { float: left; margin-right: 5px; }
+.bio_img_right, .bio_img_right_top { float: right; margin-left: 5px; }
+
+.bio_img_right_top, .bio_img_left_top { margin-top: 16px; }
 
 #bio_contents
 {
@@ -394,10 +398,18 @@ textarea
 
 #bio_nav
 {
-  padding: 5px;
+  padding: 10px 10px 15px;
   border: 1px solid black;
-  width: 150px;
-  margin-bottom: 10px;
+  width: 325px;
+  margin-bottom: 15px;
+}
+
+#bio_nav ul
+{
+  list-style-type: none;
+  margin: 0px;
+  padding: 0px;
+
 }
 
 .section_title
