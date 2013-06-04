@@ -2,7 +2,7 @@ class LinksController < ApplicationController
   load_and_authorize_resource
 
   def index
-    @links = Link.order('created_at DESC')
+    @links = Link.all
 
     respond_to do |format|
       format.html # index.html.erb
