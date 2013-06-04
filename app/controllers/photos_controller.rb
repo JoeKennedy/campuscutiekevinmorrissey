@@ -2,7 +2,7 @@ class PhotosController < ApplicationController
   load_and_authorize_resource
 
   def index
-    @photos = Photo.all
+    @photos = Photo.order('created_at DESC')
 
     respond_to do |format|
       format.html # index.html.erb
