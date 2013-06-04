@@ -11,7 +11,7 @@ User.create(:email => 'Joseph.Stephen.Kennedy@gmail.com',
             :password_confirmation => 'birdsdontfly',
             :first_name => 'Joe', :last_name => 'Kennedy', :is_admin => true)
 User.create(:email => 'Jay.M.Farber@gmail.com', 
-            :password => '2227330', :password_confirmation => '2227330',
+            :password => 'peacocking', :password_confirmation => 'peacocking',
             :first_name => 'Jay', :last_name => 'Farber', :is_admin => true)
 User.create(:email => 'joe.mcloughlin15@gmail.com', 
             :password => 'henryhenryhenry', 
