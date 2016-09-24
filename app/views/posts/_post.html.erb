@@ -6,12 +6,14 @@
     </td>
   </tr>
   <tr>
-    <td class="post_time"><div class="blue"><i>
-        <%= eastern(post.created_at) %>
-    </i></div></td>
+    <td class="post_time"><div class="blue">
+      <i><%= eastern(post.created_at) %></i>
+    </div></td>
   </tr>
   <tr>
-    <td class="post_message" colspan="3"><%= post.message %></td>
+    <td class="post_message" colspan="3">
+      <%= sanitize(post.message).gsub(/\n/, '<br>').html_safe %>
+    </td>
   </tr>
   <% if @is_index %>
   <tr>
