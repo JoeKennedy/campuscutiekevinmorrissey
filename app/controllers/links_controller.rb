@@ -6,7 +6,7 @@ class LinksController < ApplicationController
 
     respond_to do |format|
       format.html # index.html.erb
-      format.json { render :json => @links }
+      format.json { render json: @links }
     end
   end
 
@@ -15,58 +15,52 @@ class LinksController < ApplicationController
 
     respond_to do |format|
       format.html # new.html.erb
-      format.json { render :json => @link }
+      format.json { render json: @link }
     end
   end
 
   def create
-    @link = Link.new(params[:link])
+    @link = Link.new(link_params)
 
     respond_to do |format|
       if @link.save
         format.html { redirect_to(@link, 
-                      :notice => 'Link was successfully created.') }
-        format.json { render :json => @link,
-                      :status => created, :location => @link }
+                      notice: 'Link was successfully created.') }
+        format.json { render json: @link,
+                      status: created, location: @link }
       else
-        format.html { render :action => "new" }
-        format.json { render :json => @link.errors,
-                      :status => :unprocessable_entity }
+        format.html { render action: "new" }
+        format.json { render json: @link.errors,
+                      status: :unprocessable_entity }
       end
     end
   end
 
   def show
-    @link = Link.find(params[:id])
-
     respond_to do |format|
-      format.html # new.html.erb
-      format.json { render :json => @link }
+      format.html # show.html.erb
+      format.json { render json: @link }
     end
   end
 
   def edit
-    @link = Link.find(params[:id])
   end
 
   def update
-    @link = Link.find(params[:id])
-   
     respond_to do |format|
-      if @link.update_attributes(params[:link])
-        format.html { redirect_to(@link, 
-                                  :notice => 'Link was successfully updated.') }
+      if @link.update_attributes(link_params)
+        format.html { redirect_to(@link,
+                                  notice: 'Link was successfully updated.') }
         format.json { head :no_content }
       else
-        format.html { render :action => "edit" }
-        format.json { render :json => @link.errors, 
-                                      :status => :unprocessable_entity }
+        format.html { render action: "edit" }
+        format.json { render json: @link.errors,
+                      status: :unprocessable_entity }
       end
     end
   end
 
   def destroy
-    @link = Link.find(params[:id])
     @link.destroy
 
     respond_to do |format|
@@ -74,5 +68,15 @@ class LinksController < ApplicationController
       format.json { head :no_content }
     end
   end
-  
+
+private
+
+  def set_link
+    @link = Link.find(params[:id])
+  end
+
+  def link_params
+    params.require(:link).permit(:info, :link)
+  end
+
 end

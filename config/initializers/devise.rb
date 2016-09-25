@@ -5,7 +5,6 @@ Devise.setup do |config|
   # Configure the e-mail address which will be shown in Devise::Mailer,
   # note that it will be overwritten if you use your own mailer class with default "from" parameter.
   config.mailer_sender = "please-change-me-at-config-initializers-devise@example.com"
-
   # Configure the class responsible to send e-mails.
   # config.mailer = "Devise::Mailer"
 
@@ -47,6 +46,9 @@ Devise.setup do |config|
   # given strategies, for example, `config.params_authenticatable = [:database]` will
   # enable it only for database (email + password) authentication.
   # config.params_authenticatable = true
+
+
+  config.secret_key = 'ee37523d397a3668ded49a9e4cce5bea75a93611e22c801d41585b0fdc4b748f83fd8cb2c053a8578164592dc177d769d5264600107fdae3589fb95d541e8f9b'
 
   # Tell if authentication through HTTP Auth is enabled. False by default.
   # It can be set to an array that will enable http authentication only for the

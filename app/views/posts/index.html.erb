@@ -1,5 +1,5 @@
-<div class="prev_page"><%= link_to_previous_page @posts, 'Prev', :params => { :category => @category } %></div>
-<div class="next_page"><%= link_to_next_page @posts, 'Next', :params => { :category => @category } %></div>
+<div class="prev_page"><%= link_to_previous_page @posts, 'Prev', params: { category: @category } %></div>
+<div class="next_page"><%= link_to_next_page @posts, 'Next', params: { category: @category } %></div>
 
 <div id="post_header"><h2 id="header_top">Posts!</h2></div>
 
@@ -11,12 +11,12 @@
     </li>
   <% Post.select(:category).uniq.each do |c| %>
     <li class="post_nav_item"<% if c.category == @category %> id="selected_category"<% end %>>
-        <%= link_to c.category, posts_path(:category => c.category.downcase) %>
+        <%= link_to c.category, posts_path(category: c.category.downcase) %>
     </li>
   <% end %>
   <% if user_signed_in? %>
     <li class="post_nav_item"<% if @category == 'mine' %> id="selected_category"<% end %>>
-        <%= link_to 'My Posts', posts_path(:category => 'mine') %>
+        <%= link_to 'My Posts', posts_path(category: 'mine') %>
     </li>
   <% end %>
   </ul>
@@ -29,6 +29,5 @@
 
 <%= render @posts %>
 
-<%= paginate @posts, :window => [11 - @current_page, 5, 
-                                 @current_page - @total_pages + 10].max, 
-                     :params => { :category => @category } %>
+<%= paginate @posts, window: [11 - @current_page, 5, @current_page - @total_pages + 10].max,
+                     params: { category: @category } %>

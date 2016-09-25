@@ -1,5 +1,5 @@
 class PostsController < ApplicationController
-  before_filter :authenticate_user!, :except => [:index]
+  before_filter :authenticate_user!, except: [:index]
   load_and_authorize_resource
 
   def index
@@ -10,9 +10,9 @@ class PostsController < ApplicationController
       @posts = current_user.posts.order('created_at DESC')
     else
       @category = @category.split(' ').map(&:capitalize).join(' ')
-      @posts = Post.where(:category => @category).order('created_at DESC')
+      @posts = Post.where(category: @category).order('created_at DESC')
     end
-    
+
     @current_page = params[:page]
     @posts = @posts.page(@current_page)
     if !@current_page
@@ -22,11 +22,11 @@ class PostsController < ApplicationController
     end
     @total_pages = @posts.num_pages
 
-    @is_index = true;
+    @is_index = true
 
     respond_to do |format|
       format.html # index.html.erb
-      format.json { render :json => @posts }
+      format.json { render json: @posts }
     end
   end
 
@@ -35,59 +35,54 @@ class PostsController < ApplicationController
 
     respond_to do |format|
       format.html # new.html.erb
-      format.json { render :json => @post }
+      format.json { render json: @post }
     end
   end
 
   def create
-    @post = current_user.posts.create(params[:post])
+    @post = current_user.posts.create(post_params)
 
     respond_to do |format|
       if @post.save
         format.html { redirect_to(@post, 
-                      :notice => 'Post was successfully created.') }
-        format.json { render :json => @post,
-                      :status => created, :location => @post }
+                      notice: 'Post was successfully created.') }
+        format.json { render json: @post,
+                      status: created, location: @post }
       else
-        format.html { render :action => "new" }
-        format.json { render :json => @post.errors,
-                      :status => :unprocessable_entity }
+        format.html { render action: "new" }
+        format.json { render json: @post.errors,
+                      status: :unprocessable_entity }
       end
     end
   end
 
   def show
-    @post = Post.find(params[:id])
-    @is_index = false;
+    @is_index = false
 
     respond_to do |format|
       format.html # new.html.erb
-      format.json { render :json => @post }
+      format.json { render json: @post }
     end
   end
 
   def edit
-    @post = Post.find(params[:id])
   end
 
   def update
-    @post = Post.find(params[:id])
-   
     respond_to do |format|
-      if @post.update_attributes(params[:post])
+      if @post.update_attributes(post_params)
         format.html { redirect_to(@post, 
-                                  :notice => 'Post was successfully updated.') }
+                                  notice: 'Post was successfully updated.') }
         format.json { head :no_content }
       else
-        format.html { render :action => "edit" }
-        format.json { render :json => @post.errors, 
-                                       :status => :unprocessable_entity }
+        format.html { render action: "edit" }
+        format.json { render json: @post.errors,
+                             status: :unprocessable_entity }
       end
     end
   end
 
   def destroy
-    @post = Post.find(params[:id])
     @post.destroy
 
     respond_to do |format|
@@ -95,4 +90,15 @@ class PostsController < ApplicationController
       format.json { head :no_content }
     end
   end
+
+private
+
+  def set_post
+    @post = Post.find(params[:id])
+  end
+
+  def post_params
+    params.require(:post).permit(:message, :category)
+  end
+
 end

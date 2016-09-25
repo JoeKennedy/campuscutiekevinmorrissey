@@ -5,16 +5,12 @@ class User < ActiveRecord::Base
   devise :database_authenticatable, :registerable,
          :rememberable, :trackable, :validatable
 
-  # Setup accessible (or protected) attributes for your model
-  attr_accessible :first_name, :last_name, :email, :is_admin,
-                  :password, :password_confirmation, :remember_me
+  has_many :posts, dependent: :destroy
+  has_many :comments, dependent: :destroy
 
-  has_many :posts, :dependent => :destroy
-  has_many :comments, :dependent => :destroy
-
-  validates :first_name, 
-            :uniqueness => { :scope => :last_name,
-                             :message => "and last name already in use!" }
+  validates :first_name, uniqueness: {
+    scope: :last_name, message: "and last name already in use!"
+  }
 
   def name
     name = self.first_name + ' ' + self.last_name
