@@ -12,7 +12,7 @@ Cutie Kevin Morrissey, the better!
 
 <div id="links">
   <% @links.each do |link| %>
-    <div><span><%= link_to link.info, link.link %></span>
+    <div><span><%= link_to link.info, link.link, target: '_blank' %></span>
     <% if can? :update, link %>
       | <%= link_to 'Edit', edit_link_path(link) %> |
       <%= link_to 'Delete', link , :confirm => 'Are you sure?', :method => :delete %>
